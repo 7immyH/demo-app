@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Focus Timer</h1>
+            <p>Stay productive, beautifully.</p>
+        </header>
+
+        <main class="timer-card">
+            <div class="timer-display" id="time-display">25:00</div>
+            <div class="controls">
+                <button id="start-btn" class="primary-btn">Start</button>
+                <button id="pause-btn" class="secondary-btn">Pause</button>
+                <button id="reset-btn" class="secondary-btn">Reset</button>
+            </div>
+            <div class="mode-selector">
+                <button class="mode-btn active" data-mode="work">Work (25m)</button>
+                <button class="mode-btn" data-mode="break">Break (5m)</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
