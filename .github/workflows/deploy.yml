@@ -1,0 +1,27 @@
+name: Deploy to cPanel via FTP
+
+on:
+  push:
+    branches:
+      - master # Triggers deployment when you push to the master branch
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.3
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: public_html/timer/ # Adjust this if your cPanel folder is different
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/.github*/**
+          demo-app.zip
