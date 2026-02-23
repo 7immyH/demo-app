@@ -1,0 +1,4 @@
+node_modules/
+.env
+# Ignore Mac system files
+.DS_Store

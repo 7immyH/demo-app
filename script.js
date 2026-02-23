@@ -84,3 +84,13 @@ modeBtns.forEach(btn => {
 
 // Initialize display
 updateDisplay();
+
+// Allow users to logout and clear session
+document.getElementById('logout-btn')?.addEventListener('click', async () => {
+    try {
+        await fetch('/api/logout', { method: 'POST' });
+        window.location.href = '/login.html';
+    } catch (err) {
+        console.error('Logout failed', err);
+    }
+});
