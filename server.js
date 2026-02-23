@@ -90,15 +90,14 @@ const publicPaths = ['/login.html', '/login.css', '/login.js', '/favicon.ico'];
 
 app.get('/login', (req, res) => {
     if (req.session.userId) {
-        res.redirect('/');
+        res.redirect('./');
     } else {
-        res.redirect('/login.html');
+        res.redirect('login.html');
     }
 });
 
 app.use((req, res, next) => {
-    // If route is explicitly public or starts with /api/, we let the routers above handle. (Wait, /api/me requires auth internally, but the route itself manages the response).
-    // API routes shouldn't be redirected to HTML.
+    // If route is explicitly public or starts with /api/, we let the routers above handle.
     if (req.path.startsWith('/api/') || publicPaths.includes(req.path)) {
         return next();
     }
@@ -107,7 +106,13 @@ app.use((req, res, next) => {
     if (req.session.userId) {
         next();
     } else {
-        res.redirect('/login.html');
+        let redirectPath = '/login.html';
+        if (req.originalUrl !== req.url) {
+            // Determine the base path if hosted in a subdirectory
+            const base = req.originalUrl.slice(0, req.originalUrl.length - req.url.length);
+            redirectPath = base + '/login.html';
+        }
+        res.redirect(redirectPath);
     }
 });
 
