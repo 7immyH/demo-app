@@ -1,7 +1,0 @@
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/hillgeen/public_html/timer2/
-    - /bin/cp -R script.js $DEPLOYPATH
-    - /bin/cp -R index.html $DEPLOYPATH 
-    - /bin/cp -R styles.css $DEPLOYPATH
-
