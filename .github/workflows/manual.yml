@@ -36,4 +36,4 @@ jobs:
         access_token: ${{ secrets.BW_ACCESS_TOKEN }}
         base_url: https://vault.bitwarden.com
         secrets: |
-          UPSTASH_REDIS_REST_TOKEN > UPSTASH_REDIS_REST_TOKEN
+          992a0081-e648-40af-b99c-b3fb01380b57 > UPSTASH_REDIS_REST_TOKEN
